@@ -37,6 +37,10 @@ A modern, real-time polling application built with React, TypeScript, and Supaba
 - `votes`: Tracks user votes (id, poll_id, option_id, session_id)
 - `likes`: Tracks poll likes (id, poll_id, session_id)
 
+<img width="1622" height="853" alt="diagram-export-10-27-2025-11_50_54-PM" src="https://github.com/user-attachments/assets/7db05d97-c8a8-4763-a5c0-93187cb30b52" />
+
+
+
 ## 🚀 Getting Started
 
 ### Prerequisites
