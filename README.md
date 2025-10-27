@@ -1,73 +1,152 @@
-# Welcome to your Lovable project
+# QuickPoll - Real-Time Polling Platform
 
-## Project info
+A modern, real-time polling application built with React, TypeScript, and Supabase. Create, vote, and see live results as they come in!
 
-**URL**: https://lovable.dev/projects/91a631cc-4baf-458c-9d9c-fcf23c6dcfe2
+## 🚀 Features
 
-## How can I edit this code?
+- **Real-time Updates**: See votes and likes update instantly
+- **Create Polls**: Easily create new polls with multiple options
+- **Vote & Like**: Cast your vote and like your favorite polls
+- **Responsive Design**: Works on desktop and mobile devices
+- **No Login Required**: Simple session-based voting
 
-There are several ways of editing your application.
+## 🏗️ System Design & Architecture
 
-**Use Lovable**
+### Frontend Architecture
+- **React** with **TypeScript** for type-safe development
+- **Vite** for fast development and building
+- **Shadcn UI** components with **Tailwind CSS** for styling
+- **React Query** for server state management
+- **React Router** for client-side routing
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/91a631cc-4baf-458c-9d9c-fcf23c6dcfe2) and start prompting.
+### Backend Architecture
+- **Supabase** as the Backend-as-a-Service (BaaS)
+  - **PostgreSQL** for data storage
+  - **Realtime API** for live updates
+  - **Row Level Security (RLS)** for data protection
 
-Changes made via Lovable will be committed automatically to this repo.
+### Data Flow
+1. Users interact with the React frontend
+2. Frontend communicates with Supabase using the JavaScript client
+3. Supabase handles authentication, database operations, and realtime subscriptions
+4. Database changes trigger realtime updates to all connected clients
 
-**Use your preferred IDE**
+### Database Schema
+- `polls`: Stores poll information (id, title, created_at, likes_count)
+- `poll_options`: Stores options for each poll (id, poll_id, option_text, votes_count)
+- `votes`: Tracks user votes (id, poll_id, option_id, session_id)
+- `likes`: Tracks poll likes (id, poll_id, session_id)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
 
-Follow these steps:
+- Node.js 16+ (LTS recommended)
+- npm or yarn
+- Supabase account (free tier available at [supabase.com](https://supabase.com))
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Local Development Setup
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/quickpoll.git
+   cd quickpoll
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+3. **Set up environment variables**
+   Create a `.env` file in the root directory with your Supabase credentials:
+   ```env
+   VITE_SUPABASE_URL=your_supabase_project_url
+   VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_key
+   ```
+   > **Note**: Never commit your `.env` file to version control.
+
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   The application will be available at [http://localhost:8080](http://localhost:8080)
+
+5. **Build for production**
+   ```bash
+   npm run build
+   npm run preview
+   ```
+
+## 📚 Resources & APIs Used
+
+### Core Technologies
+- [React](https://reactjs.org/) - Frontend library
+- [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
+- [Vite](https://vitejs.dev/) - Build tool and dev server
+- [Supabase](https://supabase.com/) - Backend services
+
+### UI Components & Styling
+- [Shadcn UI](https://ui.shadcn.com/) - Reusable UI components
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Lucide Icons](https://lucide.dev/) - Beautiful icons
+
+### Development Tools
+- [React Query](https://tanstack.com/query) - Data fetching and state management
+- [React Router](https://reactrouter.com/) - Client-side routing
+- [ESLint](https://eslint.org/) - Code linting
+- [Prettier](https://prettier.io/) - Code formatting
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React, TypeScript, Vite
+- **UI Components**: Shadcn UI, Tailwind CSS
+- **Backend**: Supabase (PostgreSQL, Realtime, Auth)
+- **State Management**: React Query
+- **Deployment**: Vercel (Frontend), Supabase (Backend)
+
+## 🔧 Development
+
+### Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+### Folder Structure
+
+```
+src/
+├── components/      # Reusable UI components
+├── pages/          # Page components
+├── integrations/   # Third-party integrations
+│   └── supabase/   # Supabase client configuration
+└── App.tsx         # Main application component
 ```
 
-**Edit a file directly in GitHub**
+## 🤝 Contributing
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-**Use GitHub Codespaces**
+## 📝 License
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## What technologies are used for this project?
+## 🙏 Acknowledgments
 
-This project is built with:
+- Built with [Vite](https://vitejs.dev/)
+- Styled with [Tailwind CSS](https://tailwindcss.com/)
+- UI Components by [Shadcn UI](https://ui.shadcn.com/)
+- Icons by [Lucide](https://lucide.dev/)
+- Backend powered by [Supabase](https://supabase.com/)
+- State management with [React Query](https://tanstack.com/query)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📄 License
 
-## How can I deploy this project?
+This project is open source and available under the [MIT License](LICENSE).
 
-Simply open [Lovable](https://lovable.dev/projects/91a631cc-4baf-458c-9d9c-fcf23c6dcfe2) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
